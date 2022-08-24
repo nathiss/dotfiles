@@ -1,0 +1,28 @@
+[user]
+	name = nathiss
+	email = kamil.jakub.rusin@gmail.com
+	signingkey = E2850A3D650F8EDB
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[alias]
+	c = commit
+	a = add --all
+	s = status
+[pull]
+	rebase = true
+[push]
+	default = current
+[commit]
+	gpgsign = true
+[core]
+	editor = code --wait
+	whitespace = true
+	autocrlf = false
+	ignorecase = false
+[merge]
+	tool = code
+[mergetool "code"]
+	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED

@@ -99,6 +99,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshrc="code ~/.zshrc"
+alias vim="nvim"
 export GPG_TTY=$(tty)
 
 # command-not-found

@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages safe-paste command-not-found)
+plugins=(git colored-man-pages safe-paste command-not-found pyenv)
 
 source $ZSH/oh-my-zsh.sh
 

@@ -28,3 +28,5 @@
 	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[init]
+	defaultBranch = master

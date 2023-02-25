@@ -103,6 +103,15 @@ alias zshrc="code ~/.zshrc"
 alias vim="nvim"
 export GPG_TTY=$(tty)
 
+if which exa &> /dev/null; then
+    alias ls="exa"
+    alias la="exa -la"
+fi
+
+if which bat &> /dev/null; then
+    alias less="bat"
+fi
+
 # command-not-found
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/command-not-found
 HB_CNF_HANDLER="$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
@@ -113,3 +122,4 @@ fi
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"

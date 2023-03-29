@@ -1,7 +1,7 @@
 [user]
 	name = nathiss
 	email = kamil.jakub.rusin@gmail.com
-	signingkey = E2850A3D650F8EDB
+	signingkey = 3BA855EB9B990CE7
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

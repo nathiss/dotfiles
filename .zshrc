@@ -101,7 +101,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias zshrc="code ~/.zshrc"
 alias vim="nvim"
-export GPG_TTY=$(tty)
 
 if which exa &> /dev/null; then
     alias ls="exa"
@@ -123,3 +122,21 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+_rtx_hook() {
+  trap -- '' SIGINT;
+  eval "$("/Users/nathiss/.cargo/bin/rtx" hook-env -s zsh)";
+  trap - SIGINT;
+}
+typeset -ag precmd_functions;
+if [[ -z "${precmd_functions[(r)_rtx_hook]+1}" ]]; then
+  precmd_functions=( _rtx_hook ${precmd_functions[@]} )
+fi
+typeset -ag chpwd_functions;
+if [[ -z "${chpwd_functions[(r)_rtx_hook]+1}" ]]; then
+  chpwd_functions=( _rtx_hook ${chpwd_functions[@]} )
+fi
+
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpg-connect-agent /bye > /dev/null

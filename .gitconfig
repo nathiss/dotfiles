@@ -13,6 +13,7 @@
 	s = status
 [pull]
 	rebase = true
+	autoSetupRemote = true
 [push]
 	default = current
 [commit]

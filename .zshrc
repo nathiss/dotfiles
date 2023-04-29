@@ -140,3 +140,7 @@ fi
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpg-connect-agent /bye > /dev/null
+
+# Doe not save journal entries in history
+setopt HIST_IGNORE_SPACE
+alias jrnl=" jrnl"

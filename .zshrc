@@ -70,7 +70,15 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages safe-paste command-not-found pyenv poetry)
+plugins=(
+    git
+    colored-man-pages
+    safe-paste
+    command-not-found
+    pyenv
+    poetry
+    zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -141,7 +149,7 @@ export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpg-connect-agent /bye > /dev/null
 
-# Doe not save journal entries in history
+# Do not save journal entries in history
 setopt HIST_IGNORE_SPACE
 alias jrnl=" jrnl"
 
@@ -149,3 +157,9 @@ alias jrnl=" jrnl"
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
+
+# zsh-augosuggest
+# https://github.com/zsh-users/zsh-autosuggestions
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+# Bind Ctrl + space
+bindkey '^ ' autosuggest-accept

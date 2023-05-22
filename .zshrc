@@ -83,9 +83,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
+#     export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#     export EDITOR='mvim'
 # fi
 
 # Compilation flags
@@ -124,9 +124,9 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 _rtx_hook() {
-  trap -- '' SIGINT;
-  eval "$("/Users/nathiss/.cargo/bin/rtx" hook-env -s zsh)";
-  trap - SIGINT;
+    trap -- '' SIGINT;
+    eval "$("/Users/nathiss/.cargo/bin/rtx" hook-env -s zsh)";
+    trap - SIGINT;
 }
 typeset -ag precmd_functions;
 if [[ -z "${precmd_functions[(r)_rtx_hook]+1}" ]]; then
@@ -134,7 +134,7 @@ if [[ -z "${precmd_functions[(r)_rtx_hook]+1}" ]]; then
 fi
 typeset -ag chpwd_functions;
 if [[ -z "${chpwd_functions[(r)_rtx_hook]+1}" ]]; then
-  chpwd_functions=( _rtx_hook ${chpwd_functions[@]} )
+    chpwd_functions=( _rtx_hook ${chpwd_functions[@]} )
 fi
 
 export GPG_TTY="$(tty)"
@@ -147,5 +147,5 @@ alias jrnl=" jrnl"
 
 # Place to store secrets/tokens/etc.
 if [ -f ~/.zshrc.local ]; then
-  source ~/.zshrc.local
+    source ~/.zshrc.local
 fi

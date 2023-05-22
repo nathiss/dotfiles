@@ -144,3 +144,8 @@ gpg-connect-agent /bye > /dev/null
 # Doe not save journal entries in history
 setopt HIST_IGNORE_SPACE
 alias jrnl=" jrnl"
+
+# Place to store secrets/tokens/etc.
+if [ -f ~/.zshrc.local ]; then
+  source ~/.zshrc.local
+fi
